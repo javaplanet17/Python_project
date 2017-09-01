@@ -5,6 +5,7 @@ conn = sqlite3.connect('tutorial.db')
 # cursor execute things
 c = conn.cursor()
 
+# def is similar to functions()
 def create_table():
     c.execute('CREATE TABLE IF NOT EXISTS stuffToPlot(unix REAL, datestamp TEXT, keyword TEXT, value REAL)')
 
@@ -14,5 +15,6 @@ def data_entry():
     c.close()
     conn.close()
 
+#execute the def above
 create_table()
 data_entry()

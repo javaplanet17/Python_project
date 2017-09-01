@@ -28,15 +28,24 @@ def dynamic_data_entry():
     value = random.randrange(0,10)
     c.execute("INSERT INTO stuffToPlot (unix, datestamp, keyword, value) VALUES (?,?,?,?)",(unix,date,keyword, value))
     conn.commit()
-    
 
-
-#execute the def above
-create_table()
-#data_entry()
-
-for i in range(10):
-    dynamic_data_entry()
-    time.sleep(1)
+def read_from_db():
+    key = 'Python'
+    c.execute("SELECT keyword, value FROM stuffToPlot WHERE keyword='Python'")
+    for row in c.fetchall():
+        print(row)
+        
+##    data = c.fetchall()
+##    print(data)
+        
+read_from_db()
+# alt + 3 to make comment
+###execute the def above
+##create_table()
+###data_entry()
+##
+##for i in range(10):
+##    dynamic_data_entry()
+##    time.sleep(1)
 c.close()
 conn.close()
